@@ -1,7 +1,19 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    title Bare - Start Bootstrap Template
+    // Favicon
+    link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+    // Core theme CSS (includes Bootstrap)
+    link(href='css/styles.css' rel='stylesheet')
+    // Map
+    link(rel='stylesheet' href='https://unpkg.com/leaflet@1.9.3/dist/leaflet.css' integrity='sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=' crossorigin='')
+    script(src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' integrity='sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=' crossorigin='')
+    script(src="https://code.jquery.com/jquery-3.2.1.js")
   body
     block content
+    
