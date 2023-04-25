@@ -6,6 +6,8 @@ ___
 ![image](https://user-images.githubusercontent.com/35272732/233901942-9b808efd-5821-42a0-8075-688667d74826.png)
 ## Diagrama de Contexto
 ![image](https://user-images.githubusercontent.com/35272732/234348820-886ae86b-67a3-4890-af90-03227cd50a98.png)
+## Diagrama de Secuencias
+![image](https://user-images.githubusercontent.com/35272732/234418665-d8e23d2c-3449-427f-856c-5461b36926ef.png)
 
 ___
 ## Desiciones de Arquitectura
