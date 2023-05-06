@@ -1,0 +1,37 @@
+<a href="/bicicletas">Volver</a>
+<br/>
+<br/>
+
+<ng-container *ngIf="bicicleta">
+
+<!-- <form action="http://localhost:3000/api/bicicletas" method="POST" target="hiddenFrame"> -->
+<form (submit)="onSubmit()" >
+    <label for="id">ID:</label>
+    <input type="text" name="id" [(ngModel)]="id" required />
+    <br/>
+
+    <label for="color">Color:</label>
+    <select id="color" name="color" id="color" [(ngModel)]="color" required>
+        <option *ngFor="let val of ['--select--', 'Blanco', 'Negro', 'Rojo', 'Verde']" value="{{val}}">{{val}}</option>
+    </select>
+    <br/>
+
+    <label for="modelo">Modelo:</label>
+    <select id="modelo" name="modelo" id="modelo" [(ngModel)]="modelo" required>
+        <option *ngFor="let val of ['--select--', 'Ruta', 'Cross', 'Montian', 'Turismo']" value="{{val}}">{{val}}</option>
+    </select>
+    <br/>
+
+    <label for="lat">Latitud:</label>
+    <input id="lat" type="text" name="lat" value="Jhon" [(ngModel)]="lat" required />
+    <br/>
+
+    <label for="lng">Longitud:</label>
+    <input id="lng" type="text" name="lng" [(ngModel)]="lng" required />
+    <br/>
+
+    <button type="submit" class=".btn">OK</button>
+
+</form>
+<!--  -->
+</ng-container>

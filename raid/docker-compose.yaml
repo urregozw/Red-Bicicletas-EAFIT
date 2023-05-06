@@ -1,0 +1,59 @@
+version: "3.9"
+services:
+  # some-redis:
+  #   image: redis
+  #   ports:
+  #     - "6379:6379"
+
+  mysqldb:
+    build: ./mysql
+    container_name: mysqldb
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      # test: ["CMD-SHELL", " netstat -an | grep -q 3306"]
+      # timeout: 20s
+      # retries: 10
+      # interval: 10s
+
+  authms:
+    build:
+      context: ../auth-ms
+      args:
+        DOCKER_BUILDKIT: 1
+    env_file:
+      - ../auth-ms/.env
+    ports:
+      - "5000:5000"
+    restart: always      
+
+  mapms:
+    build:
+      context: ../map-ms
+      args:
+        DOCKER_BUILDKIT: 1
+    ports:
+      - "5001:5001"
+    restart: always
+
+  frontend:
+    build:
+      context: ../redbici-front
+      args:
+        DOCKER_BUILDKIT: 1 
+    ports:
+      - "80:80"
+
+  api_client:
+    build:
+      context: ../crud
+      args:
+        DOCKER_BUILDKIT: 1
+    depends_on:
+      mysqldb:
+        condition: service_healthy  
+    ports:
+      - "3000:3000"
+    restart: always

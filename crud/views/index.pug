@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  //- .container
+  //-   #main_map
+
+  .container
+    iframe#mapa(title='Mapa', width='100%', src=`http://localhost:5001/mapa`)
+  //- script(src='/js/map.js')
+
+
+
+//- script(src='/javascripts/map.js')
